@@ -1,0 +1,45 @@
+﻿dataset,variable,new_ID,Explanation,Use,Values,Notes
+demographic,seqn,id,Respondent sequence number,Help combine the files together,Each participant’s unique id,
+demographic,sddsrvyr,study_year,Data release number (specific cycle of data collection numerically),Used as a back up reference just in case of anything. Not in analysis,5 = 2007-2008; 6 = 2009-2010; 7 = 2011-2012; 8 = 2013-2014; 9 = 2015-2016; 10 = 2017-2018,
+demographic,riagendr,sex,‘Gender’ (but really it’s just sex),Split up the study populations,1= male; 2= female,
+demographic,ridageyr,age_screening,Age in years at screening,"ONLY 20-44 y/o (data on pregnant women is only from 20-44, so we only analyze this age group for everyone)",continuous,
+demographic,ridreth1,race_ethnic,Race/Hispanic origin,Analysis,3 = Non-Hispanic White; 1 = Hispanic/Mexican; 4 = Non-Hispanic Black; 5 = Other Race - Including Multi-Racial,
+demographic,ridexprg,pregnant,Pregnancy status at exam,"Used to split up definite pregnant women (value of 1) from all other women. Basically, we are lumping non-pregnant/unknown pregnancy status together in the postpartum and non-postpartum groups.","1= Yes, positive lab pregnancy test or self-reported pregnant at exam; 2 = not pregnant at example; 3 = cannot ascertain if SP is pregnant at exam",
+demographic,dmdeduc2,ed_level,Education Level- Adults 20+,Analysis,1= No High School Diploma (less than 9th grade- 9-11th); 3= High School Grad/GED or Equivalent; 4= Some College or AA degree; 5= College Graduate or Above; NA = Refused/don’t know/missing,
+demographic,dmdmartl,marital_status,Marital status,Analysis,"1=Married/Living with Partner; 2= Widowed, Divorced, or Separated; 5= Never Married; NA = Refused/Don’t know/Missing",
+demographic,ridexmon,season_collect,Season during data collection,The team goes back and forth about including this in analysis,"1 = November 1 through April 30; 2= May 1 through October 31, missing = NA",
+depression questionnaire,dpq010,dpq010,Have little interest in doing things,Only used to summate all of the PHQ-9 questions together,continuous,
+depression questionnaire,dpq020,dpq020,"Feeling down, depressed, or hopeless",Only used to summate all of the PHQ-9 questions together,continuous,
+depression questionnaire,dpq030,dpq030,Trouble sleeping or sleeping too much,Only used to summate all of the PHQ-9 questions together,continuous,
+depression questionnaire,dpq040,dpq040,Feeling tired or having little energy,Only used to summate all of the PHQ-9 questions together,continuous,
+depression questionnaire,dpq050,dpq050,Poor appetite or overeating,Only used to summate all of the PHQ-9 questions together,continuous,
+depression questionnaire,dpq060,dpq060,Feeling bad about yourself,Only used to summate all of the PHQ-9 questions together,continuous,
+depression questionnaire,dpq070,dpq070,Trouble concentrating on things,Only used to summate all of the PHQ-9 questions together,Continuous,
+depression questionnaire,dpq080,dpq080,Moving or speaking slowly or too fast,Only used to summate all of the PHQ-9 questions together,continuous,
+depression questionnaire,dpq090,dpq090,Thought you would be better off dead,Only used to summate all of the PHQ-9 questions together,continuous,
+depression questionnaire,dpqtotal,dep_score,Summation of all of the values above! From questions 1-9. The research team created this variable when combing the files,Analysis,continuous,Discussed changing to categorical values: 0-4 = no depression; 5-9 = mild; 10-14 = moderate; 15-19= Moderately severe; 20-27= Severe; 
+food security,fsdad,food_secur,Adult food security category,Analysis,"1= secure (full food security), 2= insecure (marginal- very low food security); NA = refused/don't know/missing",
+food security,fsd660zw,wic,"Currently using WIC (Women, Infants, Children)",Only used in the sub-analysis of postpartum breastfeeding versus non-breastfeeding women (not including in the main analysis because it doesn’t apply to men),1= Yes; 2 = No; 3 = refused/don't know/missing,Refused/Don’t know/missing = N/A
+reproductive health,rhq197,months_postp,How many months ago have baby?,"Used to find postpartum 0-12 months, not pregnant versus what we consider non-postpartum women (not-pregnant women 13+ months postpartum/never pregnant)",????,
+reproductive health,rhq200,breastfeed,Currently Breastfeeding,Used to find who was 0-12 months postpartum (not-pregnant) and either breastfeeding or not-breastfeeding.,1= Yes; 2 = No; 3 = refused/don't know/missing,This information was only used for the subgroup analysis of breastfeeding versus non-breastfeeding women
+laboratory data,lbxvidms,vitD_lab,Total serum vitamin D (D2 +D3) in nmol/L,Analysis,Continuous,
+laboratory data,lbxvd2ms,vitD2_lab,Serum vitamin D 2 level  in nmol/L,Analysis,Continuous,If below the lower limit of detection (2.05 nmol/L) an imputed value of 1.45 was placed for that participant. Over 70% of participants have the imputed value
+laboratory data,lbxvd3ms,vitD3_lab,Serum vitamin D3 level  in nmol/L,Analysis,Continuous,No one was below lower limit of detection in all 12 years of data
+"Dietary Interview - Total Nutrient Intakes, First Day",dr1tvd,vitD_interview,Vitamin D (D2 + D3) (mcg),Analysis,Continuous,
+"Dietary Interview - Total Nutrient Intakes, First Day",dr1tkcal,kcal,Energy (kcal),Analysis,Continuous,
+"Dietary Interview - Total Nutrient Intakes, First Day",dr1tprot,protein,Protein (gm),Analysis,Continuous,
+"Dietary Interview - Total Nutrient Intakes, First Day",dr1tcarb,carbs,Carbohydrate (gm),Analysis,Continuous,
+"Dietary Interview - Total Nutrient Intakes, First Day",dr1tsugr,sugars,Total sugars (gm),Analysis,Continuous,
+"Dietary Interview - Total Nutrient Intakes, First Day",dr1ttfat,fats,Total fat (gm),Analysis,Continuous,
+"Dietary Interview - Total Nutrient Intakes, First Day",dr1tsfat,sat_fats,Total saturated fatty acids (gm),Analysis,Continuous,
+"Dietary Interview - Total Nutrient Intakes, First Day",dr1tmfat,monosat_fats,Total monounsaturated fatty acids (gm),Analysis,Continuous,
+"Dietary Interview - Total Nutrient Intakes, First Day",dr1tpfat,polysat_fats,Total polyunsaturated fatty acids (gm),Analysis,Continuous,
+"Dietary Interview - Total Nutrient Intakes, First Day",wtdrd1,sample_wts,Dietary Day 1 Sample Weight [Julia: THESE ARE THE SURVEY WEIGHTS FOR DIET!],Analysis ,Continuous ,Tori removed observations with zero (indicating that the dietary recall data is incomplete);  ‘wtdrd1’ is the variable name in NHANES. BUT when you combine the files into an excel files it sometimes changes it to ‘wtdrd1.x’ - please be aware of this if errors are popping up when you are tyring to play around with the weight. 
+"Dietary Interview - Total Nutrient Intakes, First Day",weight12yr,sample_wt,Appropriate sample weight calculated from dietary day 1 sample weight- calculated by research team,Analysis ,calculation= I created a new variable that was [(1/6) x wtdrd1] ,
+"Dietary Supplement Use 24-Hour - Total Dietary Supplements, First Day",ds1tvd,extraD,Supplement Vitamin D (D2 + D3) (mcg),"We were using this only for the table of characteristics. Due to potentially multicollinearity, it would be left out of regressions.",Continuous,
+"Dietary Supplement Use 24-Hour - Total Dietary Supplements, First Day",ds1ds,supplements,Any dietary supplement taken? (past 24 hours still),used to decipher the appropriate sample size of participants who filled out information regarding supplement amounts taken. ,"1 = Yes; 2 = NO, NA  = refused/don't know/missing",The research team calculated all participants who answered ‘yes’ or ‘no’ to whether they had taken any dietary supplements within the past 24 hours as the total sample size of the participants who completed information. This was done to evaluate the prevalence of vitamin D supplement use more accurately in the study populations.  concerning recent vitamin D supplement use.
+examination,bmxbmi,bmi,Body Mass Index (kg/m**2),Analysis,Continuous,
+demographic,sdmvpsu,var_unit,,,,
+demographic,sdmvstra,strata,,,,
+newly_created,studypop,studypop,study population (redefined in variable),,,
+demographic,indfmpir,indfmpir,ratio of family income to poverty,Analysis,Continuous,
