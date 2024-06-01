@@ -1,6 +1,6 @@
 ## NHANES Vitamin D Depression Study Analytical Files 
 
-Analytical files for manuscript "Low Vitamin D Concentration is Associated with Increased De-pression Risk in Adults 20-44 Years-Old, an NHANES 2007-2018 Data Analysis with a Focus on Perinatal and Breastfeeding Status" by Hollingshead V, Piaskowsk JL and Y Chen (2024). **Nutrients**. *under review*. 
+Analytical files for manuscript "Low Vitamin D Concentration is Associated with Increased Depression Risk in Adults 20-44 Years-Old, an NHANES 2007-2018 Data Analysis with a Focus on Perinatal and Breastfeeding Status" by Hollingshead V, Piaskowsk JL and Y Chen (2024). **Nutrients**. *under review*. 
 
 ### Contents:
 
