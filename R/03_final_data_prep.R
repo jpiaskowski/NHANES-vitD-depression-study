@@ -1,15 +1,14 @@
 
 library(dplyr); library(tidyr)
 library(forcats)
-library(DataExplorer)
 
 mydata <- read.csv("data/NHANES_2007-2018_cleaned.csv") 
 
-codebook <- read.csv("data/codebook.csv") %>% select(variable, new_ID) %>% 
+codebook <- read.csv("data/codebook.csv") |>select(variable, new_ID) |>
   filter(variable %in% colnames(mydata))
 
-mydata_recode <- mydata %>% #select(-indfmpir) %>% 
-  rename_at(vars(codebook$variable), ~ codebook$new_ID) %>% 
+mydata_recode <- mydata |>#select(-indfmpir) |>
+  rename_at(vars(codebook$variable), ~ codebook$new_ID) |>
   mutate(depression_cat = cut(dep_score, breaks = c(0, 4, 9, 14, 28),
                               include.lowest = TRUE, ordered_result = TRUE, 
                               labels = c("no depression", "mild", "moderate", 
@@ -35,13 +34,13 @@ mydata_recode <- mydata %>% #select(-indfmpir) %>%
          wic = fct_recode(as.factor(wic), yes = "1", no = "2"),
          breastfeed = fct_recode(as.factor(breastfeed), yes = "1", no = "2"),
          supplements = fct_recode(as.factor(supplements), yes = "1", no = "2")
-         ) %>% 
+         ) |>
   mutate(breastfeed_pp = case_when(
     studypop == "postpartum" &  breastfeed == "yes" ~ "yes",
     studypop == "postpartum" &  breastfeed == "no" ~ "no",
-    TRUE ~ NA_character_)) %>% 
-  relocate(studypop, .after = id) %>% 
-  relocate(depression_cat, .after = dep_score) %>% 
+    TRUE ~ NA_character_)) |>
+  relocate(studypop, .after = id) |>
+  relocate(depression_cat, .after = dep_score) |>
   mutate(filter_var = (age_screening > 19 & age_screening < 45 &
                          kcal >= 500 & kcal <= 8000 &
                          protein >= 20 & protein <= 300 & 
@@ -49,22 +48,7 @@ mydata_recode <- mydata %>% #select(-indfmpir) %>%
                          fats >= 10 & fats <= 300 & 
                          bmi > 15))
 
-mydata_recode_age <- mydata_recode %>% 
-  filter(age_screening > 19) %>% # removes 25k obs
-  filter(age_screening < 45) # removes 20k
-  
-missing_studypop <- filter(mydata_recode_age, is.na(studypop)) %>% 
-  select(studypop, sex, pregnant, breastfeed, months_postp, breastfeed_pp)
-  
-# check on factor levels: 
-mydata_factor <- select_if(mydata_recode, is.factor)
-apply(mydata_factor, 2, table)
-
-# check on indicator variable:
-table(mydata_recode$filter_var)
-table(mydata_recode$breastfeed_pp)
-
-# write out file:
+# write out to file:
 
 write.csv(mydata_recode, "data/NHANES_2007-2018_recoded.csv", row.names = FALSE)
 

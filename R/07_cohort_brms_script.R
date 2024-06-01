@@ -10,6 +10,8 @@ library(brms)
 
 load("outputs/prepped_data.RData")
 
+data_final <- data_combin; rm(data_combin)
+
 ### additional data conditioning
 
 data_final <- data_final |> mutate(dep_cat2 = factor(dep_cat2, ordered = TRUE)) |> drop_na(vitD_lab)
