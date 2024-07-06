@@ -25,13 +25,13 @@ pp <- filter(data_final, studypop ==  "postpartum")
 
 fit_men_a <- brm(dep_cat2 | weights(sample_wts) ~ log(vitD_lab) + diet_pc1 + diet_pc2, 
              family = cumulative("logit"), 
-             warmup = 1000, iter = 2000, chains = 1,
+             warmup = 1000, iter = 2000, chains = 4,
              save_pars = save_pars(all = TRUE),
              data = men)
 
 fit_men_b <- brm(dep_cat2 | weights(sample_wts) ~ log(vitD_lab) + diet_pc1 + diet_pc2, 
                  family = cumulative("probit"), 
-                 warmup = 1000, iter = 2000, chains = 1,
+                 warmup = 1000, iter = 2000, chains = 4,
                  save_pars = save_pars(all = TRUE),
                  data = men)
 
