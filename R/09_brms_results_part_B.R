@@ -30,7 +30,7 @@ fixef(fit_bfeed_b)
 
 (hyp5 <- hypothesis(fit_bfeed_b, c("logvitD_lab:breastfeedno < 0", "logvitD_lab:breastfeedyes < 0",
                                    "logvitD_lab:breastfeedno = logvitD_lab:breastfeedyes", 
-                                   "logvitD_lab:breastfeedno - logvitD_lab:breastfeedyes < 0", 
+                                   "logvitD_lab:breastfeedno - logvitD_lab:breastfeedyes > 0", 
                                    "diet_pc1 = 0", "diet_pc2 < 0"), alpha = 0.001))
 
 ggplot(bfeed_CE, aes(x = effect1__, y = estimate__, color = effect2__, fill = effect2__, ymin = lower__, ymax = upper__)) +
